@@ -2,12 +2,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 
-function Navbar() {
+function NavAdmin() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isNavbarTransparent, setIsNavbarTransparent] = useState(false);
+  const [isNavbarTransparent, setIsNavbarTransparent] = useState(true);
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
+
+    // Set the transparency based on the scroll position
     setIsNavbarTransparent(scrollPosition < 100);
   };
 
@@ -18,8 +20,7 @@ function Navbar() {
     if (isSmallScreen) {
       menuBar.style.display = "block";
       lists.style.display = "none";
-    }
-    else {
+    } else {
       menuBar.style.display = "none";
       lists.style.display = "block";
     }
@@ -55,17 +56,18 @@ function Navbar() {
     fontSize: "1.5rem",
     fontWeight: "bold",
   };
-  const customPaddingLeft = {
+  const customPadding = {
     paddingLeft: "4rem",
   };
-  const customMarginLeft = {
-    marginLeft: "3rem",
+  const customPadding2 = {
+    marginLeft: "2.8rem",
   };
+
   return (
     <div>
       <nav
         class={`navbar navbar-dark  fixed-top ${
-          isNavbarTransparent ? "bg-dark" : ""
+          isNavbarTransparent ? "" : ""
         }`}
       >
         <div class="container-fluid">
@@ -83,48 +85,7 @@ function Navbar() {
                   aria-current="page"
                   href="#"
                 >
-                  <i class="fa fa-home"></i> &nbsp;Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-success paddingR_custom font_custom"
-                  href="#"
-                >
-                  <i class="fas fa-hands-helping"></i> &nbsp; Services
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-success paddingR_custom font_custom"
-                  href="#"
-                >
-                  <i class="fa fa-user"></i>
-                  &nbsp; Individual
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-success paddingR_custom font_custom"
-                  href="#"
-                >
-                  <i class="fa fa-users"></i> &nbsp; NGO
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-success paddingR_custom font_custom"
-                  href="#"
-                >
-                  <i class="fa fa-envelope"></i>&nbsp; Contact
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link btn text-success paddingR_custom font_custom cursor-pointer"
-                  href="#"
-                >
-                  <i class="fa fa-sign-in"></i> &nbsp;Log In
+                  <i className="fa fa-dashboard"></i>&nbsp; DashBoard
                 </a>
               </li>
               <li class="nav-item">
@@ -132,8 +93,7 @@ function Navbar() {
                   class="nav-link btn text-success paddingR_custom font_custom cursor-pointer "
                   href="#"
                 >
-                  <i class="fa fa-user-plus"></i>
-                  &nbsp; Sign Up
+                  <i class="fas fa-sign-out-alt"></i>&nbsp; Sign Out
                 </a>
               </li>
             </ul>
@@ -163,8 +123,8 @@ function Navbar() {
             ></button>
             <div class="offcanvas-header">
               <a class="navbar-brand text-success" href="#">
-                <div style={customPaddingLeft}>
-                  <div class="logoAtVertNav" style={customMarginLeft}></div>
+                <div style={customPadding}>
+                  <div class="logoAtVertNav" style={customPadding2}></div>
                   <div class="alignSelf_custom p-5">
                     <h2 style={titleColor}>GOODWILL</h2>
                   </div>
@@ -187,28 +147,7 @@ function Navbar() {
                 <li class="nav-item">
                   <a class="nav-link text-success font_custom p-4" href="#">
                     <center>
-                      <i class="fas fa-hands-helping"></i>&nbsp;Services
-                    </center>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-success font_custom p-4" href="#">
-                    <center>
-                      <i class="fa fa-user"></i>&nbsp;Individual
-                    </center>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-success font_custom p-4" href="#">
-                    <center>
-                      <i class="fa fa-users"></i>&nbsp;NGO
-                    </center>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-success font_custom p-4" href="#">
-                    <center>
-                      <i class="fa fa-envelope-o"></i>&nbsp;Contact
+                      <i className="fa fa-dashboard"></i>&nbsp; DashBoard
                     </center>
                   </a>
                 </li>
@@ -217,16 +156,7 @@ function Navbar() {
                     class="nav-link btn text-success paddingR_custom font_custom cursor-pointer p-4"
                     href="#"
                   >
-                    <i class="fa fa-sign-in"></i>&nbsp;Log In
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link btn text-success paddingR_custom font_custom cursor-pointer p-4"
-                    href="#"
-                  >
-                    <i class="fa fa-user-plus"></i>
-                    &nbsp;Sign Up
+                    <i class="fas fa-sign-out-alt"></i>&nbsp; Sign Out
                   </a>
                 </li>
               </ul>
@@ -238,4 +168,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavAdmin;
